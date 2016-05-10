@@ -1,12 +1,13 @@
 import React from 'react';
-import Input from './input';
+//import Input from './input';
+import Simple from './simple';
 //import Result from './result';
-
+import Teste from './teste';
 let App = React.createClass({
     render(){
     return(
       <div>
-        <Input />
+        <Teste />
       </div>
     );
   }
@@ -100,3 +101,68 @@ let Comment = React.createClass({
 });
 
 ReactDOM.render(<CommentBox />, document.getElementById('content'));*/
+
+
+
+
+
+
+
+/*import React from 'react';
+import Timer from './timer';
+let App = React.createClass({
+  render(){
+    return(
+      <div>
+      <h1>Hello {this.props.name}</h1>
+      <h1>{this.props.teste}</h1>
+      <Timer start={Date.now()}/>
+      </div>
+    );
+  }
+});
+export default App;
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import React from 'react';
+
+let frutas = ["maça", "mamao", "uva"];
+let App = React.createClass({
+  render(){
+    return(
+      <div>
+        {
+          frutas.map(function(fruta){
+          return (
+            <li>{fruta}</li>
+          );
+        })}
+      </div>
+    );
+  }
+});
+export default App;*/
