@@ -1,13 +1,12 @@
 import React from 'react';
-//import Input from './input';
-import Simple from './simple';
-//import Result from './result';
-import Teste from './teste';
+import FormComponent from './formComponent';
+import base from '../data/base';
+
 let App = React.createClass({
     render(){
     return(
       <div>
-        <Teste />
+        <FormComponent />
       </div>
     );
   }
