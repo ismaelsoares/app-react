@@ -5,7 +5,11 @@ let FormBottom = React.createClass({
   render(){
     return(
       <div className="formBottom">
-        <FormCategory />
+        {this.props.lista.categorias.map(categoria => {
+          return (
+            <FormCategory category={categoria}/>
+          )
+        })}
       </div>
     );
   }

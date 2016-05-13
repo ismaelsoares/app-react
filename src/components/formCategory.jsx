@@ -4,11 +4,12 @@ import data from '../data/base';
 
 let FormCategory = React.createClass({
   render(){
-    let categorias = data.categorias.map(categoria => (<h3>{categoria.nome}</h3>));
     return(
       <div>
-        {categorias}
-        <FormProduct />
+        <b>{this.props.category.nome}</b>
+        {this.props.category.items.map(product => {
+          return <FormProduct product={product} />
+        })}
       </div>
     );
   }

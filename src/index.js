@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import App from './components/app';
+import App from './components/app';
 import base from './data/base';
 import FilterableProductTable from './components/productComponent';
 
 let PRODUCTS = [
-  {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+  {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football2'},
   {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
   {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
   {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
@@ -14,8 +14,8 @@ let PRODUCTS = [
 ];
 
 
-ReactDOM.render(<FilterableProductTable products={PRODUCTS} />, document.getElementById('app'));
+//ReactDOM.render(<FilterableProductTable products={PRODUCTS} />, document.getElementById('app'));
 
-//ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
 
 //ReactDOM.render(React.createElement(App), document.getElementById('app'));

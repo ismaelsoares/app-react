@@ -1,12 +1,30 @@
 import React from 'react';
-import FormComponent from './formComponent';
 import base from '../data/base';
+import FormTop from './formTop';
+import FormBottom from './formBottom';
 
 let App = React.createClass({
+  getInitialState(){
+    return{
+      lista : base
+    }
+  },
+  textChanged(text){
+    let categorias = this.state.lista;
+    categorias = categorias.categorias.filter(category => {
+      return category.items.map(i => i.nome).indexOf(text) !== -1;
+    });
+    categorias = categorias.map((categoria) => {
+      categoria.items = categoria.items.filter(item => item.nome === text);
+      return categoria;
+    })
+    this.setState({ lista: (categorias.length === 0) ? base : { categorias: [...categorias]} })
+  },
     render(){
     return(
       <div>
-        <FormComponent />
+        <FormTop onTextChanged={this.textChanged} />
+        <FormBottom lista={this.state.lista} />
       </div>
     );
   }
