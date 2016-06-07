@@ -1,31 +1,24 @@
 import React from 'react';
-const base = require('../data/base');
+import base from '../data/base';
 import FormTop from './formTop';
 import FormBottom from './formBottom';
 
-function clone(obj) {
-    if (null == obj || "object" != typeof obj) return obj;
-    var copy = obj.constructor();
-    for (var attr in obj) {
-        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
-    }
-    return copy;
-}
-
-
 let App = React.createClass({
   getInitialState(){
-    return {
+    return{
       lista : base
     }
   },
   textChanged(text){
-    let categorias = base.categorias.map((categoria) => {
-      let cat = clone(categoria);
-      cat.items = cat.items.filter(item => new RegExp(`${text}`).test(item.nome));
-      return cat;
+    let categorias = this.state.lista;
+    categorias = categorias.categorias.filter(category => {
+      return category.items.map(i => i.nome).indexOf(text) !== -1;
     });
-    this.setState({ lista: { categorias: categorias }});
+    categorias = categorias.map((categoria) => {
+      categoria.items = categoria.items.filter(item => item.nome === text);
+      return categoria;
+    })
+    this.setState({ lista: (categorias.length === 0) ? base : { categorias: [...categorias]} })
   },
     render(){
     return(
@@ -37,6 +30,9 @@ let App = React.createClass({
   }
 });
 export default App;
+
+
+
 
 
 
